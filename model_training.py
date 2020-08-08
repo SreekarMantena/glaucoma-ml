@@ -1,14 +1,15 @@
-import tensorflow as tf
+#import tensorflow as tf
 import numpy as np
 import PIL
 from PIL import Image
 import os
 import pandas as pd
-from tensorflow.keras.layers import Conv2D, Dense, MaxPooling2D, Concatenate, AvgPool2D, Dropout, Activation
-from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
-from tensorflow.keras import Model, Input
-
-
+# from tensorflow.keras.layers import Conv2D, Dense, MaxPooling2D, Concatenate, AvgPool2D, Dropout, Activation
+# from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
+# from tensorflow.keras import Model, Input
+# from tensorflow.keras.optimizers import Adam
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices())
 
 label_path = './reliability_ratings2.csv'
 train_path = '/data/ukbb/fundus_image_grading/images_for_reliability_check/'
@@ -46,10 +47,6 @@ print(np.shape(train_X))
 print('\n\n\nShape of Train Labels:')
 print(np.shape(train_Y))
 print(train_Y)
-
-
-# Load the TensorBoard notebook extension (optional)
-# %load_ext tensorboard
 
 tf.random.set_seed(42)
 tf.__version__
